@@ -1,9 +1,12 @@
 BFS approach: Tackle several topics where you are not that familiar. 
 Time to spent: 1 month ~ 1 month and a half
 
-Topic                 |  Priority
---------------------- | ---------
-Array	                 High
+Topic                    |  Priority
+------------------------ | ---------
+Array	                   |   High
+
+Techniques
+-------------------------
 * Sliding window
 * Two pointers
 * Traversing 
@@ -15,46 +18,109 @@ Array	                 High
   more than once
 
 Essential questions
-    * Two sum
-    * Best time to buy and sell stock 
-    * Product of Array Except Self
-    * Maximum Subarray
+* Two sum
+* Best time to buy and sell stock 
+* Product of Array Except Self
+* Maximum Subarray
 
 Practice questions
-    * Contains duplicate
-    * Maximum Product Subarray
-    * Search in Rotated Sorted Array
-    * 3Sum
-    * Container with most water
-    * Sliding Window Maximum
+* Contains duplicate
+* Maximum Product Subarray
+* Search in Rotated Sorted Array
+* 3Sum
+* Container with most water
+* Sliding Window Maximum
+
+Topic                    |  Priority
+------------------------ | ---------
+* String	               |   High
+
+Common Data Structures
+* Trie/Prefix Tree
+* Suffix Tree
+
+Techniques
+-------------------------
+* Counting characters
+* String of unique characters --> Counter
+* Anagram --> Counter/ Hash Maps
+* Palindrome --> Two pointers
+
+Essential questions
+* Valid Anagram
+* Valid Palindrome
+* Longest substring without repeating characters
+
+Recommended practice questions
+* Longest repeating character replacement
+* Find all anagrams in a string
+* Minimum window substring
+* Group Anagrams
+* Longest Palindromic Substring
+* Encode and Decode Strings
 
 
-String	                High
 
+Topic                    |  Priority
+------------------------ | ---------
+* Hash Table	           |    Mid
 
-Hash Table	            Mid
-Recursion	            Mid
-Sorting and searching	High
+Topic                    |  Priority
+------------------------ | ---------
+* Recursion	             |    Mid
 
+Topic                    |  Priority
+------------------------ | ---------
+* Sorting and searching	 |    High
 
-Matrix	                High
+Topic                    |  Priority
+------------------------ | ---------
+* Matrix	               |    High
 
+Topic                    |  Priority
+------------------------ | ---------
+* Linked List	           |    Mid
 
-Linked List	            Mid
-Queue	                Mid
-Stack	                Mid
-Tree	                High
+Topic                    |  Priority
+------------------------ | ---------
+* Queue	                 |    Mid
 
+Topic                    |  Priority
+------------------------ | ---------
+* Stack	                 |    Mid
 
-Graph	                High
+Topic                    |  Priority
+------------------------ | ---------
+* Tree	                 |    High
 
+Topic                    |  Priority
+------------------------ | ---------
+* Graph	                 |    High
 
-Heap	                Mid
-Trie	                Mid
-Interval	            Mid
+Topic                    |  Priority
+------------------------ | ---------
+* Heap	                 |    Mid
 
+Topic                    |  Priority
+------------------------ | ---------
+* Trie	                 |    Mid
 
-Dynamic programming	    Low
-Binary	                Low
-Math	                Low
-Geometry	            Low
+Topic                    |  Priority
+------------------------ | ---------
+* Interval	             |    Mid
+
+Topic                    |  Priority
+------------------------ | ---------
+* Dynamic programming	   |    Low
+
+Topic                    |  Priority
+------------------------ | ---------
+* Binary	               |    Low
+
+Topic                    |  Priority
+------------------------ | ---------
+* Math	                 |    Low
+
+Topic                    |  Priority
+------------------------ | ---------
+* Geometry	             |    Low

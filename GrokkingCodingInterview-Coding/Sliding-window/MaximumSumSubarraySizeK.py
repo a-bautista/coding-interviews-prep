@@ -22,13 +22,12 @@ def max_sub_array_size_k_inefficient(arr, k):
             max_sum = max(window_sum, max_sum)
     return max_sum
 
-
-    for i in range(len(arr)-k+1):
-        window_sum = 0
-        for j in range(i, i+k):
-            window_sum += arr[j]
-        max_sum = max(max_sum, window_sum)
-    return max_sum
+    # for i in range(len(arr)-k+1):
+    #     window_sum = 0
+    #     for j in range(i, i+k):
+    #         window_sum += arr[j]
+    #     max_sum = max(max_sum, window_sum)
+    # return max_sum
 
 def max_sub_array_size_k_optimized(arr, k):
     max_sum    = 0
@@ -40,7 +39,7 @@ def max_sub_array_size_k_optimized(arr, k):
         # add elements into this window_sum fixed to the size of k
         window_sum += arr[right]
 
-        # when you hit the size k, start moving the window from left
+        # when you move to the right, you use k-1 to keep track of the max size
         if right>=k-1:
             max_sum = max(window_sum, max_sum)
 

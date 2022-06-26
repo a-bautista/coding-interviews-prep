@@ -1,5 +1,6 @@
 '''
-    Given a string, find the length of the longest substring in it with no more than K distinct characters.
+    Given a string, find the length of the longest substring in it with no more than K distinct characters. 
+    This means you need to have repeated characters and K is the limit of repeated values. 
 
     Example 1:
 
@@ -21,6 +22,7 @@
     Input: String="cbbebi", K=10
     Output: 6
     Explanation: The longest substring with no more than '10' distinct characters is "cbbebi".
+
 '''
 
 def longest_substring_with_k_distinct(str1, k):
@@ -35,27 +37,33 @@ def longest_substring_with_k_distinct(str1, k):
             my_dict[str1[window_end]]=0
         my_dict[str1[window_end]]+=1
 
+        # you need to remove those letters in the counter that have a count of 0
+        # because we are not interested in them, only in the repeated values
         while len(my_dict)>k:
         # Start moving the window
             # Get the very left pointer of the window
             left = str1[window_start]
 
-            # subtract from the dictionary because 
+            # subtract from the dictionary 
             my_dict[left] -=1
 
+            # discard in case the left pointer is 0
             if my_dict[left] == 0:
                 del my_dict[left]
 
+            # move the window
             window_start +=1
 
+        # you need to subtract the window frames because the letter that are left in the 
+        # counter are the ones that are repeated and are under the K limit
         max_val = max(max_val, window_end - window_start + 1)
     return max_val
 
 def main():
 
-    # str1 = 'araaci'
-    str2 = 'aabci'
-    res =  longest_substring_with_k_distinct(str2, 3)
+    str1 = 'araaci'
+    #str2 = 'aabci'
+    res =  longest_substring_with_k_distinct(str1, 2)
     print(res)
 
 

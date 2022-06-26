@@ -105,49 +105,62 @@ def neetcode_solution(s, p):
             
     return res
             
-def my_solution(p, q):
-    pDict = {}
-    qDict = {}
-    window_start = 0
-	
-    for i in range(len(q)):
-        if p[i] not in pDict:
-            pDict[p[i]] = 0
-        if q[i] not in qDict:
-            qDict[q[i]] = 0
+def my_solution_improved(str1, p):
+    # edge case: in case the substring is greater than str1
+    if len(str1) < len(p):
+        return []
+    
+    my_dict_window = {}
+    my_dict_p = {}
+    w_start = 0
 
-    pDict[p[i]] += 1
-    qDict[q[i]] += 1
+    for i in range(len(p)):
+        if p[i] not in my_dict_p:
+            my_dict_p[p[i]] = 0
+        if str1[i] not in my_dict_window:
+            my_dict_window[str1[i]] = 0
 
-    res = 0 if pDict == qDict else []
+        my_dict_window[str1[i]]+=1
+        my_dict_p[p[i]]+=1
 
-    for window_end in range(len(q), len(p)):
+    res = [0] if my_dict_p == my_dict_window else []
 
-        if pDict[window_end] == 0:
-            pDict[window_end] = 0
-        pDict[window_end] += 1
+    for w_end in range(len(p), len(str1)):
 
-        left = p[window_start]
+        right = str1[w_end]
+        # in case a new letter appears then add it to the dictionary
+        if right not in my_dict_window:
+            my_dict_window[right] = 0
 
-        pDict[left] -= 1
+        # start feeding the window
+        my_dict_window[right] += 1
 
-        if pDict[left] == 0:
-            del pDict[left]
+        # get the left most point
+        left_char = str1[w_start]
 
-        if pDict == qDict:
-            res.append(window_start)
+        # shrink the window
+        my_dict_window[left_char] -= 1
 
-        window_start += 1
+        # remove the element in case the count of letters in the window for the char is 0
+        if my_dict_window[left_char] == 0:
+            del my_dict_window[left_char]
+
+        # move the window
+        w_start += 1
+
+        if my_dict_window == my_dict_p:
+            res.append(w_start)
+
 
     return res
 		
 
 def main():
-    s = 'cbaebabacd'
+    str1 = 'cbaebabacd'
     p = 'abc'
-    res = neetcode_solution(s, p)
-    res2 = my_solution(s, p)
-    print(res)
+    # res = neetcode_solution(str1, p)
+    res2 = my_solution_improved(str1, p)
+    # print(res)
     print(res2)
 
 main()

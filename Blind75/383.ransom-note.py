@@ -34,15 +34,13 @@ def my_solution(ransomNote, magazine):
         else:
             hash_magazine[l]=1
             
+    # subtract the letters from the magazine that are used in the ransom note
     for letter in ransomNote:
-        if letter in hash_magazine:
-            if hash_magazine[letter]>0:
-                hash_magazine[letter]-=1
-                hash_r[letter]-=1
-        else:
-            hash_magazine[letter]=0
-
-    # trick: compare the same keys from the ransomNote
+        if letter not in hash_magazine:
+            hash_magazine[letter] =0
+        if hash_magazine[letter]>0:
+            hash_magazine[letter]-=1
+            hash_r[letter]-=1
 
     for letter in ransomNote:
         # the magazine dict should always contain more letters available than in the ransom note, if this is not the case

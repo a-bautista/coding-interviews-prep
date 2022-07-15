@@ -38,7 +38,7 @@ def solve(s):
             ret += ctmap[key] - 1
             # keep the track of the single char value that you found because that means it can be used in 
             # the middle of the string to make it palindrome
-            # ccdd_ddcc then you know either a, b or an additional d can be in the middle to make this a palindrome
+            # ccdd_ddcc then you know either a, b or an additional d can be used in the middle to make this a palindrome
             singleCharFound = 1
     
     return ret + singleCharFound

@@ -60,7 +60,7 @@ def middlenode(node):
         slow = slow.next
         # fast is at 2.x 
         fast = fast.next.next
-    return slow.val
+    return slow
 
 
 def main():

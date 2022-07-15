@@ -1,28 +1,32 @@
 '''
-543. Diameter of Binary Tree
+    543. Diameter of Binary Tree
 
-Given the root of a binary tree, return the length of the diameter of the tree.
+    Given the root of a binary tree, return the length of the diameter of the tree.
 
-The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
+    The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
 
-The length of a path between two nodes is represented by the number of edges between them.
+    The length of a path between two nodes is represented by the number of edges between them.
 
-Example 1:
+    Example 1:
 
-             1
+                1
+                / \
+            2   3
             / \
-           2   3
-          / \
-         4   5         
+            4   5         
 
-Input: root = [1,2,3,4,5]
-Output: 3 because of the edges
-Explanation: 3 is the length of the path [4,2,1,3] or [5,2,1,3].
+    Input: root = [1,2,3,4,5]
+    Output: 3 because of the edges
+    Explanation: 3 is the length of the path [4,2,1,3] or [5,2,1,3].
 
-Example 2:
+    Example 2:
 
-Input: root = [1,2]
-Output: 1
+    Input: root = [1,2]
+    Output: 1
+
+    The diameter of the tree is the height of the left node + the height of the right node.
+
+
 '''
 
 # Definition for a binary tree node.
@@ -35,41 +39,32 @@ class TreeNode:
 
 class TreeDiameter:
 
-    # def __init__(self):
-    #     self.treeDiameter = 0
-
-    # def find_diameter(self, root):
-    #     self.diameterBinaryTree(root)
-    #     return self.treeDiameter
-
-    # def diameterBinaryTree(self, root):
-    #     if not root:
-    #         return 0
-
-    #     L = self.diameterBinaryTree(root.left)
-    #     R = self.diameterBinaryTree(root.right)
-
-    #     diameter = L + R + 1 # 1 indicates to count when the edge when the nodes have reached 0
-
-    #     self.treeDiameter = max(diameter, self.treeDiameter)
-
-    #     # height
-    #     return max(L, R) + 1
+    def __init__(self):
+        self.diameter = 0
 
     def diameterOfBinaryTree(self, root):
-        res = [0]
+        # trick to keep the variable global res = [0]
+        # res = [0]
         def dfs(root):
             if not root:
+                # by definition, a None node has a height of -1
                 return -1
+
             left = dfs(root.left)
+            
             right = dfs(root.right)
-            res[0] = max(res[0], 2 + left + right)
+            
+            # diameter is equal to the height of the left and right nodes + 2 
+            # (2 is for balancing) the nodes in case we have None values
+            self.diameter = max(self.diameter, 2 + left + right)
 
-            # height
+            # return the height 
+            # 1 is for balancing the math when you reach the bottom of the tree
+            # the bottom is 0, so when going up in the recursion, you will have 1
             return 1 + max(left, right)
+        
         dfs(root)
-        return res[0]
-
+        return self.diameter
 
 def main():
     treeDiameter = TreeDiameter()

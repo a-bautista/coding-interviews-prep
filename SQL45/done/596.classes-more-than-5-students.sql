@@ -22,7 +22,7 @@
 
 Additional: Students may be enrolled in multiple classes (I need distinct)
 
-schema creation:
+Table schema:
 
 Create table Courses (student varchar(255), class varchar(255));
 

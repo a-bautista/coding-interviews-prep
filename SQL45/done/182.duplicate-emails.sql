@@ -37,6 +37,13 @@ Explanation: a@b.com is repeated two times.
 
 */
 
+-- Table schema
+
+-- Create table Person (id int, email varchar(255));
+-- insert into Person (id, email) values ('1', 'a@b.com');
+-- insert into Person (id, email) values ('2', 'c@d.com');
+-- insert into Person (id, email) values ('3', 'a@b.com');
+
 -- subquery
 
 select Email, count(Email) as num
@@ -51,6 +58,13 @@ select email from (
     group by Email
 ) as temp_table
 where num > 1;
+
+
+with CTE as (
+select Email, count(Email) as num
+from Person group by Email ) 
+select Email from CTE where num > 1;
+
 
 -- another solution
 

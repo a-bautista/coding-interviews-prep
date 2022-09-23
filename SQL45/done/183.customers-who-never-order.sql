@@ -40,6 +40,8 @@
 -- | 2  | 1          |
 -- +----+------------+
 -- 
+--
+--
 -- 
 -- Using the above tables as example, return the following:
 -- 
@@ -51,14 +53,19 @@
 -- | Max       |
 -- +-----------+
 -- 
--- 
---
 
--- @lc code=start
-# Write your MySQL query statement below
-SELECT Name AS Customers
-FROM Customers
-WHERE Id NOT IN (SELECT DISTINCT CustomerId FROM Orders)
-;
--- @lc code=end
+-- Table schema
+-- Create table Customers (id int, name varchar(255));
+-- Create table Orders (id int, customerId int);
 
+-- insert into Customers (id, name) values (1, "Joe");
+-- insert into Customers (id, name) values (2, "Henry");
+-- insert into Customers (id, name) values (3, "Sam");
+-- insert into Customers (id, name) values (4, "Max");
+
+-- insert into Orders (id, customerId) values (1, 3);
+-- insert into Orders (id, customerId) values (2, 1);
+
+
+select name as customers from Customers where Id not in (
+select distinct customerId from Orders);

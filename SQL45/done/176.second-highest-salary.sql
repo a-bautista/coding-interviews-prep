@@ -54,10 +54,14 @@
 -- the value is empty (IFNULL will assume empty is the value we want). To avoid this problem, use either MAX() or 
 -- subquery (IFNULL((subquery), null).
 
--- Versatile solutions
+-- Versatile solution
+
 -- Subquery
 
-select distinct salary from Employee order by salary desc limit 1 offset 2
+select distinct salary 
+from Employee 
+order by salary desc 
+limit 1 offset 2
 
 -- offset indicates to get the current row - n value
 
